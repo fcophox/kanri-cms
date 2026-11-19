@@ -48,7 +48,7 @@ jobs:
       - name: Invocar el worker
         env:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
-          APP_URL: ${{ vars.APP_URL || 'https://kontororu-cms.onrender.com' }}
+          APP_URL: ${{ vars.APP_URL || 'https://kanri.fcophox.com' }}
         run: |
           if [ -z "$CRON_SECRET" ]; then
             echo "::error::Falta el secreto CRON_SECRET del repositorio."

@@ -15,7 +15,7 @@
 # =====================================================================
 services:
   - type: web
-    name: kontororu-cms
+    name: kanri-cms
     runtime: node
     plan: free
 
@@ -66,7 +66,8 @@ services:
 
       # URL pública del CMS: la usan los enlaces de los correos de invitación.
       # Se rellena a mano con la URL completa del servicio una vez creado
-      # (https://kontororu-cms.onrender.com, o el dominio propio si lo hay).
+      # (https://kanri.fcophox.com; kontororu-cms.onrender.com es la URL de
+      # Render del mismo servicio, que no cambió al renombrarlo).
       # No se deriva con `fromService` porque eso devuelve el host sin
       # esquema, y un enlace de invitación sin `https://` no es un enlace.
       - key: NEXT_PUBLIC_APP_URL
@@ -95,7 +96,7 @@ services:
 #   startCommand: >
 #     curl -sS --fail --max-time 120
 #     -H "Authorization: Bearer $CRON_SECRET"
-#     "https://kontororu-cms.onrender.com/api/internal/webhooks/dispatch"
+#     "https://kanri.fcophox.com/api/internal/webhooks/dispatch"
 #   envVars:
 #     - key: CRON_SECRET
 #       sync: false
