@@ -86,7 +86,7 @@ services:
 # cuando eso pasa los reintentos dejan de ejecutarse en silencio.
 # ---------------------------------------------------------------------
 # - type: cron
-#   name: kontororu-webhooks-drain
+#   name: kanri-webhooks-drain
 #   runtime: node
 #   plan: starter
 #   region: virginia
