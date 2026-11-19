@@ -27,8 +27,8 @@ export function SiteHeader({ dashboardPath }: { dashboardPath: string | null }) 
           <Image
             src="/brand/kanri-logotipo-negativo.svg"
             alt="Kanri"
-            width={746}
-            height={200}
+            width={2725}
+            height={733}
             unoptimized
             priority
             className="h-9 w-auto"
