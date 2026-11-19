@@ -532,8 +532,8 @@ export default async function LandingPage() {
               <Image
                 src="/brand/kanri-isotipo.svg"
                 alt=""
-                width={204}
-                height={200}
+                width={733}
+                height={733}
                 unoptimized
                 className="mx-auto mb-6 size-16"
               />
@@ -579,8 +579,8 @@ export default async function LandingPage() {
             <Image
               src="/brand/kanri-isotipo.svg"
               alt=""
-              width={204}
-              height={200}
+              width={733}
+              height={733}
               unoptimized
               className="size-5"
             />

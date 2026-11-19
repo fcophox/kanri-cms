@@ -113,8 +113,8 @@ export function LegalPage({ slug }: { slug: LegalSlug }) {
             <Image
               src="/brand/kanri-logotipo-negativo.svg"
               alt="Kanri"
-              width={746}
-              height={200}
+              width={2725}
+              height={733}
               unoptimized
               priority
               className="h-8 w-auto"
