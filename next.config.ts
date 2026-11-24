@@ -48,6 +48,28 @@ const nextConfig: NextConfig = {
     // Habilita forbidden() / unauthorized() en next/navigation, usados por
     // los guards de rol en src/lib/auth/guards.ts.
     authInterrupts: true,
+
+    /*
+     * Límites del optimizador de imágenes (`/_next/image`), que descarga el
+     * original del Storage entero en memoria y lo redimensiona con sharp.
+     *
+     * El 24-nov-2026 la instancia de Render (plan free: 512 MB, 0,15 de CPU)
+     * pasó de 512 MB y se reinició mientras el panel pedía imágenes; antes,
+     * el health check dejó de responder a los 5 s con el proceso saturado.
+     *
+     * - `imgOptConcurrency`: hilos de libvips POR imagen. Next usa por defecto
+     *   la mitad de las CPU que ve, y en Render ve las del host entero, no la
+     *   fracción que nos toca: cada imagen abría varios hilos con sus propios
+     *   búferes para competir por 0,15 de CPU. Con uno, una imagen tarda lo
+     *   mismo y ocupa menos.
+     * - `imgOptMaxInputPixels`: el valor por defecto (~268 MP) no protege de
+     *   nada con 512 MB. 25 MP cubre la foto de un móvil (12–24 MP) y la de una
+     *   cámara de 24 MP; por encima, sharp rechaza la imagen y Next sirve el
+     *   original sin optimizar en vez de intentar decodificarla. Se ve igual,
+     *   pesa más, y no tumba el servidor.
+     */
+    imgOptConcurrency: 1,
+    imgOptMaxInputPixels: 25_000_000,
   },
 
   images: {
