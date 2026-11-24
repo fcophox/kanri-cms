@@ -360,6 +360,11 @@ export function PostEditor({
                       src={coverUrl}
                       alt="Vista previa de portada"
                       fill
+                      // La columna lateral mide 320 px (`w-80`). Sin `sizes`,
+                      // `fill` asume 100vw y el navegador pide la variante de
+                      // hasta 3840 px: el servidor la genera desde el original
+                      // para mostrarla en una caja de 320.
+                      sizes="320px"
                       className="object-cover transition duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-200">
